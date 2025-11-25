@@ -108,22 +108,24 @@ class ResNet(nn.Module):
         f3 = out
 
         # QFD-based FD
-        if self.args.model_type == 'teacher' and self.args.feature_quant_position == 'before_gap':
-            fd_map = self.feature_quantizer(f3, save_dict)
-            out = fd_map
-        elif self.args.model_type == 'student':
-            fd_map = f3
+        if self.args.feature_quant_position == "before_gap":
+            if self.args.model_type == 'teacher':
+                fd_map = self.feature_quantizer(f3, save_dict)
+                out = fd_map
+            elif self.args.model_type == 'student':
+                fd_map = f3
         
         out = F.avg_pool2d(out, out.size()[3])
         out = out.view(out.size(0), -1)
         f4 = out
         
         # QFD
-        if self.args.model_type == 'teacher' and self.args.feature_quant_position == 'after_gap':
-            fd_map = self.feature_quantizer(f4, save_dict)
-            out = fd_map
-        elif self.args.model_type == 'student':
-            fd_map = f4
+        if self.args.feature_quant_position == "after_gap":
+            if self.args.model_type == 'teacher':
+                fd_map = self.feature_quantizer(f4, save_dict)
+                out = fd_map
+            elif self.args.model_type == 'student':
+                fd_map = f4
 
         out = self.bn2(out)
         out = self.linear(out)
