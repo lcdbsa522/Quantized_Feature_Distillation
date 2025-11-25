@@ -9,4 +9,5 @@ from .RKD import RKDLoss
 from .SP import Similarity
 from .VID import VIDLoss
 from .ST import SimilarityTransfer
-
+from .FKD import FeatureDistillKL
+from .FC import FeatureDistillCosine

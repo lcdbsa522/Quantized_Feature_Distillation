@@ -33,71 +33,10 @@ then
                     --epochs 1200
 
 ### Train Quantized Teacher model
-### STE
-elif [ $METHOD_TYPE == "Qfeature_1bits_STE/" ] 
-then
-    python3 train_fp_to_feature_quant.py --gpu_id '0' \
-                    --arch 'resnet20_fp' \
-                    --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
-                    --QFeatureFlag True \
-                    --feature_levels 2 \
-                    --baseline True \
-                    --use_hessian False \
-                    --update_every 10 \
-                    --quan_method STE \
-                    --load_pretrain True \
-                    --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
-                    --epochs 40
-
-elif [ $METHOD_TYPE == "Qfeature_2bits_STE/" ] 
-then
-    python3 train_fp_to_feature_quant.py --gpu_id '0' \
-                    --arch 'resnet20_fp' \
-                    --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
-                    --QFeatureFlag True \
-                    --feature_levels 4 \
-                    --baseline True \
-                    --use_hessian False \
-                    --update_every 10 \
-                    --quan_method STE \
-                    --load_pretrain True \
-                    --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
-                    --epochs 40
-
-elif [ $METHOD_TYPE == "Qfeature_3bits_STE/" ] 
-then
-    python3 train_fp_to_feature_quant.py --gpu_id '0' \
-                    --arch 'resnet20_fp' \
-                    --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
-                    --QFeatureFlag True \
-                    --feature_levels 8 \
-                    --baseline True \
-                    --use_hessian False \
-                    --update_every 10 \
-                    --quan_method STE \
-                    --load_pretrain True \
-                    --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
-                    --epochs 40
-
-elif [ $METHOD_TYPE == "Qfeature_4bits_STE/" ] 
-then
-    python3 train_fp_to_feature_quant.py --gpu_id '0' \
-                    --arch 'resnet20_fp' \
-                    --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
-                    --QFeatureFlag True \
-                    --feature_levels 16 \
-                    --baseline True \
-                    --use_hessian False \
-                    --update_every 10 \
-                    --quan_method STE \
-                    --load_pretrain True \
-                    --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
-                    --epochs 40
-
 ### EWGS
-elif [ $METHOD_TYPE == "Qfeature_1bits_EWGS/" ] 
+elif [ $METHOD_TYPE == "Qfeature_before_gap_1bits_EWGS/" ] 
 then
-    python3 train_fp_to_feature_quant.py --gpu_id '0' \
+    python train_fp_to_feature_quant.py --gpu_id '0' \
                     --arch 'resnet20_fp' \
                     --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
                     --QFeatureFlag True \
@@ -106,9 +45,26 @@ then
                     --use_hessian True \
                     --update_every 10 \
                     --quan_method EWGS \
+                    --feature_quant_position 'before_gap' \
                     --load_pretrain True \
                     --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
-                    --epochs 40
+                    --epochs 120
+
+elif [ $METHOD_TYPE == "Qfeature_after_gap_1bits_EWGS/" ] 
+then
+    python train_fp_to_feature_quant.py --gpu_id '0' \
+                    --arch 'resnet20_fp' \
+                    --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
+                    --QFeatureFlag True \
+                    --feature_levels 2 \
+                    --baseline False \
+                    --use_hessian True \
+                    --update_every 10 \
+                    --quan_method EWGS \
+                    --feature_quant_position 'after_gap' \
+                    --load_pretrain True \
+                    --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
+                    --epochs 120
 
 
 elif [ $METHOD_TYPE == "Qfeature_2bits_EWGS/" ] 
@@ -124,7 +80,7 @@ then
                     --quan_method EWGS \
                     --load_pretrain True \
                     --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
-                    --epochs 40
+                    --epochs 120
 
 elif [ $METHOD_TYPE == "Qfeature_3bits_EWGS/" ] 
 then
@@ -139,7 +95,7 @@ then
                     --quan_method EWGS \
                     --load_pretrain True \
                     --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
-                    --epochs 40
+                    --epochs 120
 
 elif [ $METHOD_TYPE == "Qfeature_4bits_EWGS/" ] 
 then
@@ -154,352 +110,129 @@ then
                     --quan_method EWGS \
                     --load_pretrain True \
                     --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
-                    --epochs 40
+                    --epochs 120
 
 ### Train QFD Student model
-### STE
-elif [ $METHOD_TYPE == "FeatureKD_T2_W2A2_STE/" ] 
-then
-    python3 train_quant_with_featureKD.py --gpu_id '0' \
-                        --weight_levels 4 \
-                        --act_levels 4 \
-                        --feature_levels 4 \
-                        --baseline True \
-                        --use_hessian False \
-                        --load_pretrain True \
-                        --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
-                        --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
-                        --distill 'kd' \
-                        --teacher_arch 'resnet20_fp' \
-                        --teacher_path './results/CIFAR10_ResNet20/Qfeature_2bits_STE/checkpoint/best_checkpoint.pth' \
-                        --kd_gamma 0.5 \
-                        --kd_alpha 0.0 \
-                       --kd_beta 0.0 \
-                        --epochs 200
-
-elif [ $METHOD_TYPE == "FeatureKD_T2_W3A3_STE/" ] 
-then
-    python3 train_quant_with_featureKD.py --gpu_id '0' \
-                        --weight_levels 8 \
-                        --act_levels 8 \
-                        --feature_levels 8 \
-                        --baseline True \
-                        --use_hessian False \
-                        --load_pretrain True \
-                        --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
-                        --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
-                        --distill 'kd' \
-                        --teacher_arch 'resnet20_fp' \
-                        --teacher_path './results/CIFAR10_ResNet20/Qfeature_2bits_STE/checkpoint/best_checkpoint.pth' \
-                        --kd_gamma 0.5 \
-                        --kd_alpha 0.0 \
-                       --kd_beta 0.0 \
-                        --epochs 200
-
-elif [ $METHOD_TYPE == "FeatureKD_T2_W4A4_STE/" ] 
-then
-    python3 train_quant_with_featureKD.py --gpu_id '0' \
-                        --weight_levels 16 \
-                        --act_levels 16 \
-                        --feature_levels 16 \
-                        --baseline True \
-                        --use_hessian False \
-                        --load_pretrain True \
-                        --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
-                        --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
-                        --distill 'kd' \
-                        --teacher_arch 'resnet20_fp' \
-                        --teacher_path './results/CIFAR10_ResNet20/Qfeature_2bits_STE/checkpoint/best_checkpoint.pth' \
-                        --kd_gamma 0.5 \
-                        --kd_alpha 0.0 \
-                       --kd_beta 0.0 \
-                        --epochs 200
-
-elif [ $METHOD_TYPE == "FeatureKD_T3_W2A2_STE/" ] 
-then
-    python3 train_quant_with_featureKD.py --gpu_id '0' \
-                        --weight_levels 4 \
-                        --act_levels 4 \
-                        --feature_levels 4 \
-                        --baseline True \
-                        --use_hessian False \
-                        --load_pretrain True \
-                        --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
-                        --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
-                        --distill 'kd' \
-                        --teacher_arch 'resnet20_fp' \
-                        --teacher_path './results/CIFAR10_ResNet20/Qfeature_3bits_STE/checkpoint/best_checkpoint.pth' \
-                        --kd_gamma 0.5 \
-                        --kd_alpha 0.0 \
-                       --kd_beta 0.0 \
-                        --epochs 200
-
-elif [ $METHOD_TYPE == "FeatureKD_T3_W3A3_STE/" ] 
-then
-    python3 train_quant_with_featureKD.py --gpu_id '0' \
-                        --weight_levels 8 \
-                        --act_levels 8 \
-                        --feature_levels 8 \
-                        --baseline True \
-                        --use_hessian False \
-                        --load_pretrain True \
-                        --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
-                        --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
-                        --distill 'kd' \
-                        --teacher_arch 'resnet20_fp' \
-                        --teacher_path './results/CIFAR10_ResNet20/Qfeature_3bits_STE/checkpoint/best_checkpoint.pth' \
-                        --kd_gamma 0.5 \
-                        --kd_alpha 0.0 \
-                       --kd_beta 0.0 \
-                        --epochs 200
-
-elif [ $METHOD_TYPE == "FeatureKD_T3_W4A4_STE/" ] 
-then
-    python3 train_quant_with_featureKD.py --gpu_id '0' \
-                        --weight_levels 16 \
-                        --act_levels 16 \
-                        --feature_levels 16 \
-                        --baseline True \
-                        --use_hessian False \
-                        --load_pretrain True \
-                        --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
-                        --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
-                        --distill 'kd' \
-                        --teacher_arch 'resnet20_fp' \
-                        --teacher_path './results/CIFAR10_ResNet20/Qfeature_3bits_STE/checkpoint/best_checkpoint.pth' \
-                        --kd_gamma 0.5 \
-                        --kd_alpha 0.0 \
-                       --kd_beta 0.0 \
-                        --epochs 200
-
-elif [ $METHOD_TYPE == "FeatureKD_T4_W2A2_STE/" ] 
-then
-    python3 train_quant_with_featureKD.py --gpu_id '0' \
-                        --weight_levels 4 \
-                        --act_levels 4 \
-                        --feature_levels 4 \
-                        --baseline True \
-                        --use_hessian False \
-                        --load_pretrain True \
-                        --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
-                        --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
-                        --distill 'kd' \
-                        --teacher_arch 'resnet20_fp' \
-                        --teacher_path './results/CIFAR10_ResNet20/Qfeature_4bits_STE/checkpoint/best_checkpoint.pth' \
-                        --kd_gamma 0.5 \
-                        --kd_alpha 0.0 \
-                       --kd_beta 0.0 \
-                        --epochs 200
-
-elif [ $METHOD_TYPE == "FeatureKD_T4_W3A3_STE/" ] 
-then
-    python3 train_quant_with_featureKD.py --gpu_id '0' \
-                        --weight_levels 8 \
-                        --act_levels 8 \
-                        --feature_levels 8 \
-                        --baseline True \
-                        --use_hessian False \
-                        --load_pretrain True \
-                        --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
-                        --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
-                        --distill 'kd' \
-                        --teacher_arch 'resnet20_fp' \
-                        --teacher_path './results/CIFAR10_ResNet20/Qfeature_4bits_STE/checkpoint/best_checkpoint.pth' \
-                        --kd_gamma 0.5 \
-                        --kd_alpha 0.0 \
-                       --kd_beta 0.0 \
-                        --epochs 200
-
-elif [ $METHOD_TYPE == "FeatureKD_T4_W4A4_STE/" ] 
-then
-    python3 train_quant_with_featureKD.py --gpu_id '0' \
-                        --weight_levels 16 \
-                        --act_levels 16 \
-                        --feature_levels 16 \
-                        --baseline True \
-                        --use_hessian False \
-                        --load_pretrain True \
-                        --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
-                        --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
-                        --distill 'kd' \
-                        --teacher_arch 'resnet20_fp' \
-                        --teacher_path './results/CIFAR10_ResNet20/Qfeature_4bits_STE/checkpoint/best_checkpoint.pth' \
-                        --kd_gamma 0.5 \
-                        --kd_alpha 0.0 \
-                       --kd_beta 0.0 \
-                        --epochs 200
-
 ### EWGS
-elif [ $METHOD_TYPE == "FeatureKD_T2_W2A2_EWGS/" ] 
+elif [ $METHOD_TYPE == "QFD_T1_W1A1_EWGS/" ] 
 then
-    python3 train_quant_with_featureKD.py --gpu_id '0' \
+    python train_quant_with_featureKD.py --gpu_id '0' \
+                        --weight_levels 2 \
+                        --act_levels 2 \
+                        --feature_levels 2 \
+                        --baseline False \
+                        --use_hessian True \
+                        --load_pretrain True \
+                        --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
+                        --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
+                        --distill 'fd' \
+                        --teacher_arch 'resnet20_fp' \
+                        --feature_quant_position 'after_gap' \
+                        --distill_loss 'L2' \
+                        --teacher_path './results/CIFAR10_ResNet20/Qfeature_after_gap_1bits_EWGS/checkpoint/best_checkpoint.pth' \
+                        --kd_beta 1.0 \
+                        --kd_gamma 1.0 \
+                        --epochs 1200
+
+elif [ $METHOD_TYPE == "QFD_T1_W2A2_EWGS/" ] 
+then
+    python train_quant_with_featureKD.py --gpu_id '0' \
                         --weight_levels 4 \
                         --act_levels 4 \
-                        --feature_levels 4 \
+                        --feature_levels 2 \
                         --baseline False \
                         --use_hessian True \
                         --load_pretrain True \
                         --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
                         --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
-                        --distill 'kd' \
+                        --distill 'fd' \
                         --teacher_arch 'resnet20_fp' \
-                        --teacher_path './results/CIFAR10_ResNet20/Qfeature_2bits_EWGS/checkpoint/best_checkpoint.pth' \
-                        --kd_gamma 0.5 \
-                        --kd_alpha 0.0 \
-                       --kd_beta 0.0 \
-                        --epochs 200
+                        --feature_quant_position 'after_gap' \
+                        --distill_loss 'L2' \
+                        --teacher_path './results/CIFAR10_ResNet20/Qfeature_after_gap_1bits_EWGS/checkpoint/best_checkpoint.pth' \
+                        --kd_beta 1.0 \
+                        --kd_gamma 1.0 \
+                        --epochs 1200
 
-elif [ $METHOD_TYPE == "FeatureKD_T2_W3A3_EWGS/" ] 
+elif [ $METHOD_TYPE == "QFD_T1_W4A4_EWGS/" ] 
 then
-    python3 train_quant_with_featureKD.py --gpu_id '0' \
-                        --weight_levels 8 \
-                        --act_levels 8 \
-                        --feature_levels 8 \
-                        --baseline False \
-                        --use_hessian True \
-                        --load_pretrain True \
-                        --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
-                        --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
-                        --distill 'kd' \
-                        --teacher_arch 'resnet20_fp' \
-                        --teacher_path './results/CIFAR10_ResNet20/Qfeature_2bits_EWGS/checkpoint/best_checkpoint.pth' \
-                        --kd_gamma 0.5 \
-                        --kd_alpha 0.0 \
-                       --kd_beta 0.0 \
-                        --epochs 200
-
-elif [ $METHOD_TYPE == "FeatureKD_T2_W4A4_EWGS/" ] 
-then
-    python3 train_quant_with_featureKD.py --gpu_id '0' \
+    python train_quant_with_featureKD.py --gpu_id '0' \
                         --weight_levels 16 \
                         --act_levels 16 \
-                        --feature_levels 16 \
+                        --feature_levels 2 \
                         --baseline False \
                         --use_hessian True \
                         --load_pretrain True \
                         --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
                         --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
-                        --distill 'kd' \
+                        --distill 'fd' \
                         --teacher_arch 'resnet20_fp' \
-                        --teacher_path './results/CIFAR10_ResNet20/Qfeature_2bits_EWGS/checkpoint/best_checkpoint.pth' \
-                        --kd_gamma 0.5 \
-                        --kd_alpha 0.0 \
-                       --kd_beta 0.0 \
-                        --epochs 200 
+                        --feature_quant_position 'after_gap' \
+                        --distill_loss 'L2' \
+                        --teacher_path './results/CIFAR10_ResNet20/Qfeature_after_gap_1bits_EWGS/checkpoint/best_checkpoint.pth' \
+                        --kd_beta 1.0 \
+                        --kd_gamma 1.0 \
+                        --epochs 1200
 
-elif [ $METHOD_TYPE == "FeatureKD_T3_W2A2_EWGS/" ] 
+elif [ $METHOD_TYPE == "Cal_T1_W1A1_EWGS/" ] 
 then
-    python3 train_quant_with_featureKD.py --gpu_id '1' \
+    python train_quant_with_featureKD.py --gpu_id '0' \
+                        --weight_levels 2 \
+                        --act_levels 2 \
+                        --feature_levels 2 \
+                        --baseline False \
+                        --use_hessian True \
+                        --load_pretrain True \
+                        --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
+                        --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
+                        --distill 'fd' \
+                        --teacher_arch 'resnet20_fp' \
+                        --feature_quant_position 'before_gap' \
+                        --distill_loss 'L2' \
+                        --teacher_path './results/CIFAR10_ResNet20/Qfeature_before_gap_1bits_EWGS/checkpoint/best_checkpoint.pth' \
+                        --kd_beta 1.0 \
+                        --kd_gamma 1.0 \
+                        --epochs 1200
+
+elif [ $METHOD_TYPE == "Cal_T1_W2A2_EWGS/" ] 
+then
+    python train_quant_with_featureKD.py --gpu_id '0' \
                         --weight_levels 4 \
                         --act_levels 4 \
-                        --feature_levels 4 \
+                        --feature_levels 2 \
                         --baseline False \
                         --use_hessian True \
                         --load_pretrain True \
                         --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
                         --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
-                        --distill 'kd' \
+                        --distill 'fd' \
                         --teacher_arch 'resnet20_fp' \
-                        --teacher_path './results/CIFAR10_ResNet20/Qfeature_3bits_EWGS/checkpoint/best_checkpoint.pth' \
-                        --kd_gamma 0.5 \
-                        --kd_alpha 0.0 \
-                       --kd_beta 0.0 \
-                        --epochs 200  
+                        --feature_quant_position 'before_gap' \
+                        --distill_loss 'L2' \
+                        --teacher_path './results/CIFAR10_ResNet20/Qfeature_before_gap_1bits_EWGS/checkpoint/best_checkpoint.pth' \
+                        --kd_beta 1.0 \
+                        --kd_gamma 1.0 \
+                        --epochs 1200
 
-elif [ $METHOD_TYPE == "FeatureKD_T3_W3A3_EWGS/" ] 
+elif [ $METHOD_TYPE == "Cal_T1_W4A4_EWGS/" ] 
 then
-    python3 train_quant_with_featureKD.py --gpu_id '1' \
-                        --weight_levels 8 \
-                        --act_levels 8 \
-                        --feature_levels 8 \
-                        --baseline False \
-                        --use_hessian True \
-                        --load_pretrain True \
-                        --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
-                        --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
-                        --distill 'kd' \
-                        --teacher_arch 'resnet20_fp' \
-                        --teacher_path './results/CIFAR10_ResNet20/Qfeature_3bits_EWGS/checkpoint/best_checkpoint.pth' \
-                        --kd_gamma 0.5 \
-                        --kd_alpha 0.0 \
-                       --kd_beta 0.0 \
-                        --epochs 200
-
-elif [ $METHOD_TYPE == "FeatureKD_T3_W4A4_EWGS/" ] 
-then
-    python3 train_quant_with_featureKD.py --gpu_id '2' \
+    python train_quant_with_featureKD.py --gpu_id '0' \
                         --weight_levels 16 \
                         --act_levels 16 \
-                        --feature_levels 16 \
+                        --feature_levels 2 \
                         --baseline False \
                         --use_hessian True \
                         --load_pretrain True \
                         --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
                         --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
-                        --distill 'kd' \
+                        --distill 'fd' \
                         --teacher_arch 'resnet20_fp' \
-                        --teacher_path './results/CIFAR10_ResNet20/Qfeature_3bits_EWGS/checkpoint/best_checkpoint.pth' \
-                        --kd_gamma 0.5 \
-                        --kd_alpha 0.0 \
-                       --kd_beta 0.0 \
-                        --epochs 200
-
-elif [ $METHOD_TYPE == "FeatureKD_T4_W2A2_EWGS/" ] 
-then
-    python3 train_quant_with_featureKD.py --gpu_id '2' \
-                        --weight_levels 4 \
-                        --act_levels 4 \
-                        --feature_levels 4 \
-                        --baseline False \
-                        --use_hessian True \
-                        --load_pretrain True \
-                        --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
-                        --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
-                        --distill 'kd' \
-                        --teacher_arch 'resnet20_fp' \
-                        --teacher_path './results/CIFAR10_ResNet20/Qfeature_4bits_EWGS/checkpoint/best_checkpoint.pth' \
-                        --kd_gamma 0.5 \
-                        --kd_alpha 0.0 \
-                       --kd_beta 0.0 \
-                        --epochs 200    
-
-elif [ $METHOD_TYPE == "FeatureKD_T4_W3A3_EWGS/" ] 
-then
-    python3 train_quant_with_featureKD.py --gpu_id '3' \
-                        --weight_levels 8 \
-                        --act_levels 8 \
-                        --feature_levels 8 \
-                        --baseline False \
-                        --use_hessian True \
-                        --load_pretrain True \
-                        --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
-                        --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
-                        --distill 'kd' \
-                        --teacher_arch 'resnet20_fp' \
-                        --teacher_path './results/CIFAR10_ResNet20/Qfeature_4bits_EWGS/checkpoint/best_checkpoint.pth' \
-                        --kd_gamma 0.5 \
-                        --kd_alpha 0.0 \
-                       --kd_beta 0.0 \
-                        --epochs 200
-
-elif [ $METHOD_TYPE == "FeatureKD_T4_W4A4_EWGS/" ] 
-then
-    python3 train_quant_with_featureKD.py --gpu_id '3' \
-                        --weight_levels 16 \
-                        --act_levels 16 \
-                        --feature_levels 16 \
-                        --baseline False \
-                        --use_hessian True \
-                        --load_pretrain True \
-                        --pretrain_path './results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth' \
-                        --log_dir './results/CIFAR10_ResNet20/'$METHOD_TYPE \
-                        --distill 'kd' \
-                        --teacher_arch 'resnet20_fp' \
-                        --teacher_path './results/CIFAR10_ResNet20/Qfeature_4bits_EWGS/checkpoint/best_checkpoint.pth' \
-                        --kd_gamma 0.5 \
-                        --kd_alpha 0.0 \
-                       --kd_beta 0.0 \
-                        --epochs 200 
+                        --feature_quant_position 'before_gap' \
+                        --distill_loss 'L2' \
+                        --teacher_path './results/CIFAR10_ResNet20/Qfeature_before_gap_1bits_EWGS/checkpoint/best_checkpoint.pth' \
+                        --kd_beta 1.0 \
+                        --kd_gamma 1.0 \
+                        --epochs 1200
                         
 fi
 

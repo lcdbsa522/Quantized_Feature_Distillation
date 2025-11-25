@@ -7,7 +7,7 @@ from models.util import Embed, ConvReg, LinearEmbed
 from models.util import Connector, Translator, Paraphraser
 
 from distiller_zoo import SimilarityTransfer
-from distiller_zoo import DistillKL, HintLoss, Attention, Similarity, Correlation, VIDLoss, RKDLoss
+from distiller_zoo import DistillKL, HintLoss, Attention, Similarity, Correlation, VIDLoss, RKDLoss, FeatureDistillKL, FeatureDistillCosine
 from distiller_zoo import FactorTransfer, FSP, NSTLoss
 from crd.criterion import CRDLoss
 
@@ -26,8 +26,8 @@ def define_distill_module_and_loss(model_s, model_t, model_params, args, n_data,
     data = torch.randn(2, 3, 32, 32).cuda() 
     model_t.eval()
     model_s.eval()
-    feat_t, block_out_t, _ = model_t(data, is_feat=True, flatGroupOut=flatGroupOut)
-    feat_s, block_out_s, _ = model_s(data, is_feat=True, flatGroupOut=flatGroupOut)
+    feat_t, block_out_t, _, fd_map_s = model_t(data, is_feat=True, flatGroupOut=flatGroupOut)
+    feat_s, block_out_s, _, fd_map_t = model_s(data, is_feat=True, flatGroupOut=flatGroupOut)
 
     module_list = nn.ModuleList([])
     module_list.append(model_s)
@@ -37,6 +37,16 @@ def define_distill_module_and_loss(model_s, model_t, model_params, args, n_data,
     if args.distill == 'kd':
         criterion_kd = DistillKL(args.kd_T)
 
+    elif args.distill =='fd':
+        if args.distill_loss == 'L1':
+            criterion_kd = torch.nn.L1Loss()
+        elif args.distill_loss == 'L2':
+            criterion_kd = torch.nn.MSELoss()
+        elif args.distill_loss == 'KL_Div':
+            criterion_kd = FeatureDistillKL(args.kd_T)
+        elif args.distill_loss == 'Cosine':
+            criterion_kd = FeatureDistillCosine()
+        
     elif args.distill == 'crd':
         args.s_dim = feat_s[-1].shape[1]
         args.t_dim = feat_t[-1].shape[1]

@@ -54,13 +54,13 @@ class ResNet(nn.Module):
         self.linear = nn.Linear(64, num_classes)
 
         # FeatureQuantizer 모듈 추가
-        if self.args.QFeatureFlag:
+        if self.args.model_type == 'teacher' and self.args.QFeatureFlag:
             self.feature_quantizer = FeatureQuantizer(
                 num_levels=self.args.feature_levels,  
                 scaling_factor=self.args.bkwd_scaling_factorF,
                 baseline=self.args.baseline  
             )
-            print("FeatureQuantizer 모듈 추가")
+            print("Add Teacher FeatureQuantizer")
             
         self.apply(_weights_init)
 
@@ -107,15 +107,23 @@ class ResNet(nn.Module):
         out = self.layer3(out, save_dict, lambda_dict)
         f3 = out
 
+        # QFD-based FD
+        if self.args.model_type == 'teacher' and self.args.feature_quant_position == 'before_gap':
+            fd_map = self.feature_quantizer(f3, save_dict)
+            out = fd_map
+        elif self.args.model_type == 'student':
+            fd_map = f3
+        
         out = F.avg_pool2d(out, out.size()[3])
         out = out.view(out.size(0), -1)
         f4 = out
         
-        # Feature quantization 적용
-        if hasattr(self, 'feature_quantizer'):
-            #print("feature quantize")
-            f4 = self.feature_quantizer(f4, save_dict)
-            out = f4
+        # QFD
+        if self.args.model_type == 'teacher' and self.args.feature_quant_position == 'after_gap':
+            fd_map = self.feature_quantizer(f4, save_dict)
+            out = fd_map
+        elif self.args.model_type == 'student':
+            fd_map = f4
 
         out = self.bn2(out)
         out = self.linear(out)
@@ -138,7 +146,7 @@ class ResNet(nn.Module):
             if preact:
                 raise NotImplementedError(f"{preact} is not implemented")
             else:
-                return [f0, f1, f2, f3, f4], [block_out1, block_out2, block_out3], out
+                return [f0, f1, f2, f3, f4], [block_out1, block_out2, block_out3], out, fd_map
         else:
             return out
 

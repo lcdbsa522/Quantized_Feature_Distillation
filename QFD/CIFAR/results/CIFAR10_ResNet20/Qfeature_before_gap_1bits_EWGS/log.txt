@@ -1,0 +1,1253 @@
+configs
+dataset: cifar10	arch: resnet20_fp	num_workers: 4	seed: None	num_classes: 10	batch_size: 256	epochs: 120	optimizer_m: Adam	optimizer_q: Adam	lr_m: 0.001	lr_q: 1e-05	lr_m_end: 0.0	lr_q_end: 0.0	decay_schedule_m: 150-300	decay_schedule_q: 150-300	momentum: 0.9	weight_decay: 0.0001	lr_scheduler_m: cosine	lr_scheduler_q: cosine	gamma: 0.1	QWeightFlag: False	QActFlag: False	QFeatureFlag: True	feature_levels: 2	feature_quant_position: before_gap	baseline: False	bkwd_scaling_factorF: 0.0	use_hessian: True	update_every: 10	quan_method: EWGS	gpu_id: 0	log_dir: ./results/CIFAR10_ResNet20/Qfeature_before_gap_1bits_EWGS/	load_pretrain: True	pretrain_path: ./results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth	
+
+The number of parameters : 269853
+
+Following modules are initialized from pretrained model
+conv1.weight	bn1.weight	bn1.bias	bn1.running_mean	bn1.running_var	bn1.num_batches_tracked	layer1.0.conv1.weight	layer1.0.bn1.weight	layer1.0.bn1.bias	layer1.0.bn1.running_mean	layer1.0.bn1.running_var	layer1.0.bn1.num_batches_tracked	layer1.0.conv2.weight	layer1.0.bn2.weight	layer1.0.bn2.bias	layer1.0.bn2.running_mean	layer1.0.bn2.running_var	layer1.0.bn2.num_batches_tracked	layer1.1.conv1.weight	layer1.1.bn1.weight	layer1.1.bn1.bias	layer1.1.bn1.running_mean	layer1.1.bn1.running_var	layer1.1.bn1.num_batches_tracked	layer1.1.conv2.weight	layer1.1.bn2.weight	layer1.1.bn2.bias	layer1.1.bn2.running_mean	layer1.1.bn2.running_var	layer1.1.bn2.num_batches_tracked	layer1.2.conv1.weight	layer1.2.bn1.weight	layer1.2.bn1.bias	layer1.2.bn1.running_mean	layer1.2.bn1.running_var	layer1.2.bn1.num_batches_tracked	layer1.2.conv2.weight	layer1.2.bn2.weight	layer1.2.bn2.bias	layer1.2.bn2.running_mean	layer1.2.bn2.running_var	layer1.2.bn2.num_batches_tracked	layer2.0.conv1.weight	layer2.0.bn1.weight	layer2.0.bn1.bias	layer2.0.bn1.running_mean	layer2.0.bn1.running_var	layer2.0.bn1.num_batches_tracked	layer2.0.conv2.weight	layer2.0.bn2.weight	layer2.0.bn2.bias	layer2.0.bn2.running_mean	layer2.0.bn2.running_var	layer2.0.bn2.num_batches_tracked	layer2.1.conv1.weight	layer2.1.bn1.weight	layer2.1.bn1.bias	layer2.1.bn1.running_mean	layer2.1.bn1.running_var	layer2.1.bn1.num_batches_tracked	layer2.1.conv2.weight	layer2.1.bn2.weight	layer2.1.bn2.bias	layer2.1.bn2.running_mean	layer2.1.bn2.running_var	layer2.1.bn2.num_batches_tracked	layer2.2.conv1.weight	layer2.2.bn1.weight	layer2.2.bn1.bias	layer2.2.bn1.running_mean	layer2.2.bn1.running_var	layer2.2.bn1.num_batches_tracked	layer2.2.conv2.weight	layer2.2.bn2.weight	layer2.2.bn2.bias	layer2.2.bn2.running_mean	layer2.2.bn2.running_var	layer2.2.bn2.num_batches_tracked	layer3.0.conv1.weight	layer3.0.bn1.weight	layer3.0.bn1.bias	layer3.0.bn1.running_mean	layer3.0.bn1.running_var	layer3.0.bn1.num_batches_tracked	layer3.0.conv2.weight	layer3.0.bn2.weight	layer3.0.bn2.bias	layer3.0.bn2.running_mean	layer3.0.bn2.running_var	layer3.0.bn2.num_batches_tracked	layer3.1.conv1.weight	layer3.1.bn1.weight	layer3.1.bn1.bias	layer3.1.bn1.running_mean	layer3.1.bn1.running_var	layer3.1.bn1.num_batches_tracked	layer3.1.conv2.weight	layer3.1.bn2.weight	layer3.1.bn2.bias	layer3.1.bn2.running_mean	layer3.1.bn2.running_var	layer3.1.bn2.num_batches_tracked	layer3.2.conv1.weight	layer3.2.bn1.weight	layer3.2.bn1.bias	layer3.2.bn1.running_mean	layer3.2.bn1.running_var	layer3.2.bn1.num_batches_tracked	layer3.2.conv2.weight	layer3.2.bn2.weight	layer3.2.bn2.bias	layer3.2.bn2.running_mean	layer3.2.bn2.running_var	layer3.2.bn2.num_batches_tracked	bn2.weight	bn2.bias	bn2.running_mean	bn2.running_var	bn2.num_batches_tracked	linear.weight	linear.bias	
+
+configs
+dataset: cifar10	arch: resnet20_fp	num_workers: 4	seed: None	num_classes: 10	batch_size: 256	epochs: 120	optimizer_m: Adam	optimizer_q: Adam	lr_m: 0.001	lr_q: 1e-05	lr_m_end: 0.0	lr_q_end: 0.0	decay_schedule_m: 150-300	decay_schedule_q: 150-300	momentum: 0.9	weight_decay: 0.0001	lr_scheduler_m: cosine	lr_scheduler_q: cosine	gamma: 0.1	QWeightFlag: False	QActFlag: False	QFeatureFlag: True	feature_levels: 2	feature_quant_position: before_gap	baseline: False	bkwd_scaling_factorF: 0.0	use_hessian: True	update_every: 10	quan_method: EWGS	gpu_id: 0	log_dir: ./results/CIFAR10_ResNet20/Qfeature_before_gap_1bits_EWGS/	load_pretrain: True	pretrain_path: ./results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth	
+
+The number of parameters : 269853
+
+Following modules are initialized from pretrained model
+conv1.weight	bn1.weight	bn1.bias	bn1.running_mean	bn1.running_var	bn1.num_batches_tracked	layer1.0.conv1.weight	layer1.0.bn1.weight	layer1.0.bn1.bias	layer1.0.bn1.running_mean	layer1.0.bn1.running_var	layer1.0.bn1.num_batches_tracked	layer1.0.conv2.weight	layer1.0.bn2.weight	layer1.0.bn2.bias	layer1.0.bn2.running_mean	layer1.0.bn2.running_var	layer1.0.bn2.num_batches_tracked	layer1.1.conv1.weight	layer1.1.bn1.weight	layer1.1.bn1.bias	layer1.1.bn1.running_mean	layer1.1.bn1.running_var	layer1.1.bn1.num_batches_tracked	layer1.1.conv2.weight	layer1.1.bn2.weight	layer1.1.bn2.bias	layer1.1.bn2.running_mean	layer1.1.bn2.running_var	layer1.1.bn2.num_batches_tracked	layer1.2.conv1.weight	layer1.2.bn1.weight	layer1.2.bn1.bias	layer1.2.bn1.running_mean	layer1.2.bn1.running_var	layer1.2.bn1.num_batches_tracked	layer1.2.conv2.weight	layer1.2.bn2.weight	layer1.2.bn2.bias	layer1.2.bn2.running_mean	layer1.2.bn2.running_var	layer1.2.bn2.num_batches_tracked	layer2.0.conv1.weight	layer2.0.bn1.weight	layer2.0.bn1.bias	layer2.0.bn1.running_mean	layer2.0.bn1.running_var	layer2.0.bn1.num_batches_tracked	layer2.0.conv2.weight	layer2.0.bn2.weight	layer2.0.bn2.bias	layer2.0.bn2.running_mean	layer2.0.bn2.running_var	layer2.0.bn2.num_batches_tracked	layer2.1.conv1.weight	layer2.1.bn1.weight	layer2.1.bn1.bias	layer2.1.bn1.running_mean	layer2.1.bn1.running_var	layer2.1.bn1.num_batches_tracked	layer2.1.conv2.weight	layer2.1.bn2.weight	layer2.1.bn2.bias	layer2.1.bn2.running_mean	layer2.1.bn2.running_var	layer2.1.bn2.num_batches_tracked	layer2.2.conv1.weight	layer2.2.bn1.weight	layer2.2.bn1.bias	layer2.2.bn1.running_mean	layer2.2.bn1.running_var	layer2.2.bn1.num_batches_tracked	layer2.2.conv2.weight	layer2.2.bn2.weight	layer2.2.bn2.bias	layer2.2.bn2.running_mean	layer2.2.bn2.running_var	layer2.2.bn2.num_batches_tracked	layer3.0.conv1.weight	layer3.0.bn1.weight	layer3.0.bn1.bias	layer3.0.bn1.running_mean	layer3.0.bn1.running_var	layer3.0.bn1.num_batches_tracked	layer3.0.conv2.weight	layer3.0.bn2.weight	layer3.0.bn2.bias	layer3.0.bn2.running_mean	layer3.0.bn2.running_var	layer3.0.bn2.num_batches_tracked	layer3.1.conv1.weight	layer3.1.bn1.weight	layer3.1.bn1.bias	layer3.1.bn1.running_mean	layer3.1.bn1.running_var	layer3.1.bn1.num_batches_tracked	layer3.1.conv2.weight	layer3.1.bn2.weight	layer3.1.bn2.bias	layer3.1.bn2.running_mean	layer3.1.bn2.running_var	layer3.1.bn2.num_batches_tracked	layer3.2.conv1.weight	layer3.2.bn1.weight	layer3.2.bn1.bias	layer3.2.bn1.running_mean	layer3.2.bn1.running_var	layer3.2.bn1.num_batches_tracked	layer3.2.conv2.weight	layer3.2.bn2.weight	layer3.2.bn2.bias	layer3.2.bn2.running_mean	layer3.2.bn2.running_var	layer3.2.bn2.num_batches_tracked	bn2.weight	bn2.bias	bn2.running_mean	bn2.running_var	bn2.num_batches_tracked	linear.weight	linear.bias	
+
+configs
+dataset: cifar10	arch: resnet20_fp	num_workers: 4	seed: None	num_classes: 10	batch_size: 256	epochs: 120	optimizer_m: Adam	optimizer_q: Adam	lr_m: 0.001	lr_q: 1e-05	lr_m_end: 0.0	lr_q_end: 0.0	decay_schedule_m: 150-300	decay_schedule_q: 150-300	momentum: 0.9	weight_decay: 0.0001	lr_scheduler_m: cosine	lr_scheduler_q: cosine	gamma: 0.1	QWeightFlag: False	QActFlag: False	QFeatureFlag: True	feature_levels: 2	feature_quant_position: before_gap	baseline: False	bkwd_scaling_factorF: 0.0	use_hessian: True	update_every: 10	quan_method: EWGS	gpu_id: 0	log_dir: ./results/CIFAR10_ResNet20/Qfeature_before_gap_1bits_EWGS/	load_pretrain: True	pretrain_path: ./results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth	
+
+The number of parameters : 269853
+
+Following modules are initialized from pretrained model
+conv1.weight	bn1.weight	bn1.bias	bn1.running_mean	bn1.running_var	bn1.num_batches_tracked	layer1.0.conv1.weight	layer1.0.bn1.weight	layer1.0.bn1.bias	layer1.0.bn1.running_mean	layer1.0.bn1.running_var	layer1.0.bn1.num_batches_tracked	layer1.0.conv2.weight	layer1.0.bn2.weight	layer1.0.bn2.bias	layer1.0.bn2.running_mean	layer1.0.bn2.running_var	layer1.0.bn2.num_batches_tracked	layer1.1.conv1.weight	layer1.1.bn1.weight	layer1.1.bn1.bias	layer1.1.bn1.running_mean	layer1.1.bn1.running_var	layer1.1.bn1.num_batches_tracked	layer1.1.conv2.weight	layer1.1.bn2.weight	layer1.1.bn2.bias	layer1.1.bn2.running_mean	layer1.1.bn2.running_var	layer1.1.bn2.num_batches_tracked	layer1.2.conv1.weight	layer1.2.bn1.weight	layer1.2.bn1.bias	layer1.2.bn1.running_mean	layer1.2.bn1.running_var	layer1.2.bn1.num_batches_tracked	layer1.2.conv2.weight	layer1.2.bn2.weight	layer1.2.bn2.bias	layer1.2.bn2.running_mean	layer1.2.bn2.running_var	layer1.2.bn2.num_batches_tracked	layer2.0.conv1.weight	layer2.0.bn1.weight	layer2.0.bn1.bias	layer2.0.bn1.running_mean	layer2.0.bn1.running_var	layer2.0.bn1.num_batches_tracked	layer2.0.conv2.weight	layer2.0.bn2.weight	layer2.0.bn2.bias	layer2.0.bn2.running_mean	layer2.0.bn2.running_var	layer2.0.bn2.num_batches_tracked	layer2.1.conv1.weight	layer2.1.bn1.weight	layer2.1.bn1.bias	layer2.1.bn1.running_mean	layer2.1.bn1.running_var	layer2.1.bn1.num_batches_tracked	layer2.1.conv2.weight	layer2.1.bn2.weight	layer2.1.bn2.bias	layer2.1.bn2.running_mean	layer2.1.bn2.running_var	layer2.1.bn2.num_batches_tracked	layer2.2.conv1.weight	layer2.2.bn1.weight	layer2.2.bn1.bias	layer2.2.bn1.running_mean	layer2.2.bn1.running_var	layer2.2.bn1.num_batches_tracked	layer2.2.conv2.weight	layer2.2.bn2.weight	layer2.2.bn2.bias	layer2.2.bn2.running_mean	layer2.2.bn2.running_var	layer2.2.bn2.num_batches_tracked	layer3.0.conv1.weight	layer3.0.bn1.weight	layer3.0.bn1.bias	layer3.0.bn1.running_mean	layer3.0.bn1.running_var	layer3.0.bn1.num_batches_tracked	layer3.0.conv2.weight	layer3.0.bn2.weight	layer3.0.bn2.bias	layer3.0.bn2.running_mean	layer3.0.bn2.running_var	layer3.0.bn2.num_batches_tracked	layer3.1.conv1.weight	layer3.1.bn1.weight	layer3.1.bn1.bias	layer3.1.bn1.running_mean	layer3.1.bn1.running_var	layer3.1.bn1.num_batches_tracked	layer3.1.conv2.weight	layer3.1.bn2.weight	layer3.1.bn2.bias	layer3.1.bn2.running_mean	layer3.1.bn2.running_var	layer3.1.bn2.num_batches_tracked	layer3.2.conv1.weight	layer3.2.bn1.weight	layer3.2.bn1.bias	layer3.2.bn1.running_mean	layer3.2.bn1.running_var	layer3.2.bn1.num_batches_tracked	layer3.2.conv2.weight	layer3.2.bn2.weight	layer3.2.bn2.bias	layer3.2.bn2.running_mean	layer3.2.bn2.running_var	layer3.2.bn2.num_batches_tracked	bn2.weight	bn2.bias	bn2.running_mean	bn2.running_var	bn2.num_batches_tracked	linear.weight	linear.bias	
+
+configs
+dataset: cifar10	arch: resnet20_fp	num_workers: 4	seed: None	num_classes: 10	batch_size: 256	epochs: 120	optimizer_m: Adam	optimizer_q: Adam	lr_m: 0.001	lr_q: 1e-05	lr_m_end: 0.0	lr_q_end: 0.0	decay_schedule_m: 150-300	decay_schedule_q: 150-300	momentum: 0.9	weight_decay: 0.0001	lr_scheduler_m: cosine	lr_scheduler_q: cosine	gamma: 0.1	QWeightFlag: False	QActFlag: False	QFeatureFlag: True	feature_levels: 2	feature_quant_position: before_gap	baseline: False	bkwd_scaling_factorF: 0.0	use_hessian: True	update_every: 10	quan_method: EWGS	gpu_id: 0	log_dir: ./results/CIFAR10_ResNet20/Qfeature_before_gap_1bits_EWGS/	load_pretrain: True	pretrain_path: ./results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth	
+
+The number of parameters : 269853
+
+Following modules are initialized from pretrained model
+conv1.weight	bn1.weight	bn1.bias	bn1.running_mean	bn1.running_var	bn1.num_batches_tracked	layer1.0.conv1.weight	layer1.0.bn1.weight	layer1.0.bn1.bias	layer1.0.bn1.running_mean	layer1.0.bn1.running_var	layer1.0.bn1.num_batches_tracked	layer1.0.conv2.weight	layer1.0.bn2.weight	layer1.0.bn2.bias	layer1.0.bn2.running_mean	layer1.0.bn2.running_var	layer1.0.bn2.num_batches_tracked	layer1.1.conv1.weight	layer1.1.bn1.weight	layer1.1.bn1.bias	layer1.1.bn1.running_mean	layer1.1.bn1.running_var	layer1.1.bn1.num_batches_tracked	layer1.1.conv2.weight	layer1.1.bn2.weight	layer1.1.bn2.bias	layer1.1.bn2.running_mean	layer1.1.bn2.running_var	layer1.1.bn2.num_batches_tracked	layer1.2.conv1.weight	layer1.2.bn1.weight	layer1.2.bn1.bias	layer1.2.bn1.running_mean	layer1.2.bn1.running_var	layer1.2.bn1.num_batches_tracked	layer1.2.conv2.weight	layer1.2.bn2.weight	layer1.2.bn2.bias	layer1.2.bn2.running_mean	layer1.2.bn2.running_var	layer1.2.bn2.num_batches_tracked	layer2.0.conv1.weight	layer2.0.bn1.weight	layer2.0.bn1.bias	layer2.0.bn1.running_mean	layer2.0.bn1.running_var	layer2.0.bn1.num_batches_tracked	layer2.0.conv2.weight	layer2.0.bn2.weight	layer2.0.bn2.bias	layer2.0.bn2.running_mean	layer2.0.bn2.running_var	layer2.0.bn2.num_batches_tracked	layer2.1.conv1.weight	layer2.1.bn1.weight	layer2.1.bn1.bias	layer2.1.bn1.running_mean	layer2.1.bn1.running_var	layer2.1.bn1.num_batches_tracked	layer2.1.conv2.weight	layer2.1.bn2.weight	layer2.1.bn2.bias	layer2.1.bn2.running_mean	layer2.1.bn2.running_var	layer2.1.bn2.num_batches_tracked	layer2.2.conv1.weight	layer2.2.bn1.weight	layer2.2.bn1.bias	layer2.2.bn1.running_mean	layer2.2.bn1.running_var	layer2.2.bn1.num_batches_tracked	layer2.2.conv2.weight	layer2.2.bn2.weight	layer2.2.bn2.bias	layer2.2.bn2.running_mean	layer2.2.bn2.running_var	layer2.2.bn2.num_batches_tracked	layer3.0.conv1.weight	layer3.0.bn1.weight	layer3.0.bn1.bias	layer3.0.bn1.running_mean	layer3.0.bn1.running_var	layer3.0.bn1.num_batches_tracked	layer3.0.conv2.weight	layer3.0.bn2.weight	layer3.0.bn2.bias	layer3.0.bn2.running_mean	layer3.0.bn2.running_var	layer3.0.bn2.num_batches_tracked	layer3.1.conv1.weight	layer3.1.bn1.weight	layer3.1.bn1.bias	layer3.1.bn1.running_mean	layer3.1.bn1.running_var	layer3.1.bn1.num_batches_tracked	layer3.1.conv2.weight	layer3.1.bn2.weight	layer3.1.bn2.bias	layer3.1.bn2.running_mean	layer3.1.bn2.running_var	layer3.1.bn2.num_batches_tracked	layer3.2.conv1.weight	layer3.2.bn1.weight	layer3.2.bn1.bias	layer3.2.bn1.running_mean	layer3.2.bn1.running_var	layer3.2.bn1.num_batches_tracked	layer3.2.conv2.weight	layer3.2.bn2.weight	layer3.2.bn2.bias	layer3.2.bn2.running_mean	layer3.2.bn2.running_var	layer3.2.bn2.num_batches_tracked	bn2.weight	bn2.bias	bn2.running_mean	bn2.running_var	bn2.num_batches_tracked	linear.weight	linear.bias	
+
+configs
+dataset: cifar10	arch: resnet20_fp	num_workers: 4	seed: None	num_classes: 10	batch_size: 256	epochs: 120	optimizer_m: Adam	optimizer_q: Adam	lr_m: 0.001	lr_q: 1e-05	lr_m_end: 0.0	lr_q_end: 0.0	decay_schedule_m: 150-300	decay_schedule_q: 150-300	momentum: 0.9	weight_decay: 0.0001	lr_scheduler_m: cosine	lr_scheduler_q: cosine	gamma: 0.1	QWeightFlag: False	QActFlag: False	QFeatureFlag: True	feature_levels: 2	feature_quant_position: before_gap	baseline: False	bkwd_scaling_factorF: 0.0	use_hessian: True	update_every: 10	quan_method: EWGS	gpu_id: 0	log_dir: ./results/CIFAR10_ResNet20/Qfeature_before_gap_1bits_EWGS/	load_pretrain: True	pretrain_path: ./results/CIFAR10_ResNet20/fp/checkpoint/best_checkpoint.pth	
+
+The number of parameters : 269853
+
+Following modules are initialized from pretrained model
+conv1.weight	bn1.weight	bn1.bias	bn1.running_mean	bn1.running_var	bn1.num_batches_tracked	layer1.0.conv1.weight	layer1.0.bn1.weight	layer1.0.bn1.bias	layer1.0.bn1.running_mean	layer1.0.bn1.running_var	layer1.0.bn1.num_batches_tracked	layer1.0.conv2.weight	layer1.0.bn2.weight	layer1.0.bn2.bias	layer1.0.bn2.running_mean	layer1.0.bn2.running_var	layer1.0.bn2.num_batches_tracked	layer1.1.conv1.weight	layer1.1.bn1.weight	layer1.1.bn1.bias	layer1.1.bn1.running_mean	layer1.1.bn1.running_var	layer1.1.bn1.num_batches_tracked	layer1.1.conv2.weight	layer1.1.bn2.weight	layer1.1.bn2.bias	layer1.1.bn2.running_mean	layer1.1.bn2.running_var	layer1.1.bn2.num_batches_tracked	layer1.2.conv1.weight	layer1.2.bn1.weight	layer1.2.bn1.bias	layer1.2.bn1.running_mean	layer1.2.bn1.running_var	layer1.2.bn1.num_batches_tracked	layer1.2.conv2.weight	layer1.2.bn2.weight	layer1.2.bn2.bias	layer1.2.bn2.running_mean	layer1.2.bn2.running_var	layer1.2.bn2.num_batches_tracked	layer2.0.conv1.weight	layer2.0.bn1.weight	layer2.0.bn1.bias	layer2.0.bn1.running_mean	layer2.0.bn1.running_var	layer2.0.bn1.num_batches_tracked	layer2.0.conv2.weight	layer2.0.bn2.weight	layer2.0.bn2.bias	layer2.0.bn2.running_mean	layer2.0.bn2.running_var	layer2.0.bn2.num_batches_tracked	layer2.1.conv1.weight	layer2.1.bn1.weight	layer2.1.bn1.bias	layer2.1.bn1.running_mean	layer2.1.bn1.running_var	layer2.1.bn1.num_batches_tracked	layer2.1.conv2.weight	layer2.1.bn2.weight	layer2.1.bn2.bias	layer2.1.bn2.running_mean	layer2.1.bn2.running_var	layer2.1.bn2.num_batches_tracked	layer2.2.conv1.weight	layer2.2.bn1.weight	layer2.2.bn1.bias	layer2.2.bn1.running_mean	layer2.2.bn1.running_var	layer2.2.bn1.num_batches_tracked	layer2.2.conv2.weight	layer2.2.bn2.weight	layer2.2.bn2.bias	layer2.2.bn2.running_mean	layer2.2.bn2.running_var	layer2.2.bn2.num_batches_tracked	layer3.0.conv1.weight	layer3.0.bn1.weight	layer3.0.bn1.bias	layer3.0.bn1.running_mean	layer3.0.bn1.running_var	layer3.0.bn1.num_batches_tracked	layer3.0.conv2.weight	layer3.0.bn2.weight	layer3.0.bn2.bias	layer3.0.bn2.running_mean	layer3.0.bn2.running_var	layer3.0.bn2.num_batches_tracked	layer3.1.conv1.weight	layer3.1.bn1.weight	layer3.1.bn1.bias	layer3.1.bn1.running_mean	layer3.1.bn1.running_var	layer3.1.bn1.num_batches_tracked	layer3.1.conv2.weight	layer3.1.bn2.weight	layer3.1.bn2.bias	layer3.1.bn2.running_mean	layer3.1.bn2.running_var	layer3.1.bn2.num_batches_tracked	layer3.2.conv1.weight	layer3.2.bn1.weight	layer3.2.bn1.bias	layer3.2.bn1.running_mean	layer3.2.bn1.running_var	layer3.2.bn1.num_batches_tracked	layer3.2.conv2.weight	layer3.2.bn2.weight	layer3.2.bn2.bias	layer3.2.bn2.running_mean	layer3.2.bn2.running_var	layer3.2.bn2.num_batches_tracked	bn2.weight	bn2.bias	bn2.running_mean	bn2.running_var	bn2.num_batches_tracked	linear.weight	linear.bias	
+
+# total params: 269853
+# model params: 269850
+# quantizer params: 3
+Current epoch: 000	 Test accuracy: 92.03%
+lF: Parameter containing:
+tensor(-0.0003, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.9359, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.0
+output_scale: Parameter containing:
+tensor(1.3006, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 001	 Test accuracy: 91.92%
+lF: Parameter containing:
+tensor(4.6985e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.8438, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.0
+output_scale: Parameter containing:
+tensor(1.1355, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 002	 Test accuracy: 92.01%
+lF: Parameter containing:
+tensor(-0.0002, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7949, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.0
+output_scale: Parameter containing:
+tensor(0.9964, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 003	 Test accuracy: 91.99000000000001%
+lF: Parameter containing:
+tensor(-0.0006, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7568, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.0
+output_scale: Parameter containing:
+tensor(0.8940, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 004	 Test accuracy: 92.08%
+lF: Parameter containing:
+tensor(-0.0004, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7490, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.0
+output_scale: Parameter containing:
+tensor(0.8277, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 005	 Test accuracy: 91.96%
+lF: Parameter containing:
+tensor(0.0007, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7498, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.0
+output_scale: Parameter containing:
+tensor(0.7901, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 006	 Test accuracy: 92.07%
+lF: Parameter containing:
+tensor(3.2248e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7364, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.0
+output_scale: Parameter containing:
+tensor(0.7857, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 007	 Test accuracy: 91.94%
+lF: Parameter containing:
+tensor(-0.0015, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7454, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.0
+output_scale: Parameter containing:
+tensor(0.7831, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 008	 Test accuracy: 91.97%
+lF: Parameter containing:
+tensor(-0.0011, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7374, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.0
+output_scale: Parameter containing:
+tensor(0.7934, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 009	 Test accuracy: 92.02%
+lF: Parameter containing:
+tensor(0.0003, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7330, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.0
+output_scale: Parameter containing:
+tensor(0.7796, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 010	 Test accuracy: 92.08%
+lF: Parameter containing:
+tensor(-0.0003, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7488, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.02021738886833191
+output_scale: Parameter containing:
+tensor(0.7672, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 011	 Test accuracy: 91.97%
+lF: Parameter containing:
+tensor(-0.0010, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7566, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.02021738886833191
+output_scale: Parameter containing:
+tensor(0.7936, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 012	 Test accuracy: 91.96%
+lF: Parameter containing:
+tensor(0.0004, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7541, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.02021738886833191
+output_scale: Parameter containing:
+tensor(0.7877, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 013	 Test accuracy: 92.01%
+lF: Parameter containing:
+tensor(0.0001, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7493, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.02021738886833191
+output_scale: Parameter containing:
+tensor(0.7726, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 014	 Test accuracy: 91.9%
+lF: Parameter containing:
+tensor(0.0004, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7505, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.02021738886833191
+output_scale: Parameter containing:
+tensor(0.7860, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 015	 Test accuracy: 92.02%
+lF: Parameter containing:
+tensor(-0.0003, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7513, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.02021738886833191
+output_scale: Parameter containing:
+tensor(0.7824, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 016	 Test accuracy: 92.05%
+lF: Parameter containing:
+tensor(0.0004, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7414, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.02021738886833191
+output_scale: Parameter containing:
+tensor(0.7790, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 017	 Test accuracy: 92.07%
+lF: Parameter containing:
+tensor(-0.0006, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7647, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.02021738886833191
+output_scale: Parameter containing:
+tensor(0.7788, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 018	 Test accuracy: 92.0%
+lF: Parameter containing:
+tensor(0.0001, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7542, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.02021738886833191
+output_scale: Parameter containing:
+tensor(0.7815, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 019	 Test accuracy: 92.02%
+lF: Parameter containing:
+tensor(-0.0003, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7476, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.02021738886833191
+output_scale: Parameter containing:
+tensor(0.7809, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 020	 Test accuracy: 91.85%
+lF: Parameter containing:
+tensor(-0.0003, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7309, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01827600598335266
+output_scale: Parameter containing:
+tensor(0.7844, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 021	 Test accuracy: 92.04%
+lF: Parameter containing:
+tensor(3.4336e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7343, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01827600598335266
+output_scale: Parameter containing:
+tensor(0.7749, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 022	 Test accuracy: 91.95%
+lF: Parameter containing:
+tensor(2.4711e-06, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7530, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01827600598335266
+output_scale: Parameter containing:
+tensor(0.7886, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 023	 Test accuracy: 92.05%
+lF: Parameter containing:
+tensor(-0.0007, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7519, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01827600598335266
+output_scale: Parameter containing:
+tensor(0.7687, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 024	 Test accuracy: 91.94%
+lF: Parameter containing:
+tensor(0.0003, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7533, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01827600598335266
+output_scale: Parameter containing:
+tensor(0.7833, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 025	 Test accuracy: 91.96%
+lF: Parameter containing:
+tensor(0.0010, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7395, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01827600598335266
+output_scale: Parameter containing:
+tensor(0.7787, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 026	 Test accuracy: 92.11%
+lF: Parameter containing:
+tensor(0.0010, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7454, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01827600598335266
+output_scale: Parameter containing:
+tensor(0.7759, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 027	 Test accuracy: 92.02%
+lF: Parameter containing:
+tensor(0.0003, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7498, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01827600598335266
+output_scale: Parameter containing:
+tensor(0.7836, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 028	 Test accuracy: 92.0%
+lF: Parameter containing:
+tensor(0.0003, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7472, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01827600598335266
+output_scale: Parameter containing:
+tensor(0.7952, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 029	 Test accuracy: 92.01%
+lF: Parameter containing:
+tensor(0.0008, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7497, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01827600598335266
+output_scale: Parameter containing:
+tensor(0.7842, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 030	 Test accuracy: 91.94%
+lF: Parameter containing:
+tensor(4.9201e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7429, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.017696665599942207
+output_scale: Parameter containing:
+tensor(0.7747, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 031	 Test accuracy: 92.06%
+lF: Parameter containing:
+tensor(-0.0004, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7442, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.017696665599942207
+output_scale: Parameter containing:
+tensor(0.7816, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 032	 Test accuracy: 91.95%
+lF: Parameter containing:
+tensor(-0.0005, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7522, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.017696665599942207
+output_scale: Parameter containing:
+tensor(0.7987, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 033	 Test accuracy: 92.02%
+lF: Parameter containing:
+tensor(-0.0002, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7524, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.017696665599942207
+output_scale: Parameter containing:
+tensor(0.7911, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 034	 Test accuracy: 92.10000000000001%
+lF: Parameter containing:
+tensor(-0.0003, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7521, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.017696665599942207
+output_scale: Parameter containing:
+tensor(0.7865, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 035	 Test accuracy: 92.04%
+lF: Parameter containing:
+tensor(-3.1425e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7552, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.017696665599942207
+output_scale: Parameter containing:
+tensor(0.7780, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 036	 Test accuracy: 91.96%
+lF: Parameter containing:
+tensor(0.0001, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7499, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.017696665599942207
+output_scale: Parameter containing:
+tensor(0.7659, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 037	 Test accuracy: 91.94%
+lF: Parameter containing:
+tensor(-0.0001, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7729, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.017696665599942207
+output_scale: Parameter containing:
+tensor(0.7727, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 038	 Test accuracy: 92.02%
+lF: Parameter containing:
+tensor(-0.0002, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7475, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.017696665599942207
+output_scale: Parameter containing:
+tensor(0.7771, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 039	 Test accuracy: 91.88%
+lF: Parameter containing:
+tensor(-0.0008, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7469, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.017696665599942207
+output_scale: Parameter containing:
+tensor(0.7687, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 040	 Test accuracy: 91.89%
+lF: Parameter containing:
+tensor(-0.0003, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7466, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01583130843937397
+output_scale: Parameter containing:
+tensor(0.7742, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 041	 Test accuracy: 91.99000000000001%
+lF: Parameter containing:
+tensor(0.0004, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7436, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01583130843937397
+output_scale: Parameter containing:
+tensor(0.7793, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 042	 Test accuracy: 91.96%
+lF: Parameter containing:
+tensor(-0.0007, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7454, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01583130843937397
+output_scale: Parameter containing:
+tensor(0.7757, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 043	 Test accuracy: 91.85%
+lF: Parameter containing:
+tensor(0.0003, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7368, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01583130843937397
+output_scale: Parameter containing:
+tensor(0.7866, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 044	 Test accuracy: 91.86999999999999%
+lF: Parameter containing:
+tensor(-8.9987e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7296, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01583130843937397
+output_scale: Parameter containing:
+tensor(0.7806, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 045	 Test accuracy: 91.97%
+lF: Parameter containing:
+tensor(9.6919e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7368, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01583130843937397
+output_scale: Parameter containing:
+tensor(0.7770, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 046	 Test accuracy: 91.92%
+lF: Parameter containing:
+tensor(-0.0001, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7323, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01583130843937397
+output_scale: Parameter containing:
+tensor(0.7785, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 047	 Test accuracy: 92.01%
+lF: Parameter containing:
+tensor(4.3011e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7442, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01583130843937397
+output_scale: Parameter containing:
+tensor(0.7805, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 048	 Test accuracy: 91.96%
+lF: Parameter containing:
+tensor(-0.0003, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7453, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01583130843937397
+output_scale: Parameter containing:
+tensor(0.7740, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 049	 Test accuracy: 92.02%
+lF: Parameter containing:
+tensor(-0.0002, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7525, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01583130843937397
+output_scale: Parameter containing:
+tensor(0.7801, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 050	 Test accuracy: 91.99000000000001%
+lF: Parameter containing:
+tensor(-0.0009, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7436, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.023983480408787727
+output_scale: Parameter containing:
+tensor(0.7721, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 051	 Test accuracy: 92.0%
+lF: Parameter containing:
+tensor(-0.0007, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7374, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.023983480408787727
+output_scale: Parameter containing:
+tensor(0.7759, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 052	 Test accuracy: 91.82000000000001%
+lF: Parameter containing:
+tensor(0.0002, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7397, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.023983480408787727
+output_scale: Parameter containing:
+tensor(0.7691, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 053	 Test accuracy: 91.82000000000001%
+lF: Parameter containing:
+tensor(-4.5658e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7362, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.023983480408787727
+output_scale: Parameter containing:
+tensor(0.7806, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 054	 Test accuracy: 91.89%
+lF: Parameter containing:
+tensor(-0.0002, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7356, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.023983480408787727
+output_scale: Parameter containing:
+tensor(0.7790, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 055	 Test accuracy: 92.02%
+lF: Parameter containing:
+tensor(-0.0001, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7490, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.023983480408787727
+output_scale: Parameter containing:
+tensor(0.7775, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 056	 Test accuracy: 92.09%
+lF: Parameter containing:
+tensor(-0.0002, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7473, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.023983480408787727
+output_scale: Parameter containing:
+tensor(0.7859, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 057	 Test accuracy: 92.08%
+lF: Parameter containing:
+tensor(-0.0001, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7459, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.023983480408787727
+output_scale: Parameter containing:
+tensor(0.7745, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 058	 Test accuracy: 91.92%
+lF: Parameter containing:
+tensor(-0.0003, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7482, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.023983480408787727
+output_scale: Parameter containing:
+tensor(0.7725, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 059	 Test accuracy: 92.06%
+lF: Parameter containing:
+tensor(0.0005, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7502, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.023983480408787727
+output_scale: Parameter containing:
+tensor(0.7768, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 060	 Test accuracy: 91.97999999999999%
+lF: Parameter containing:
+tensor(-0.0001, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7497, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.020840059965848923
+output_scale: Parameter containing:
+tensor(0.7802, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 061	 Test accuracy: 92.05%
+lF: Parameter containing:
+tensor(3.8813e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7495, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.020840059965848923
+output_scale: Parameter containing:
+tensor(0.7794, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 062	 Test accuracy: 92.02%
+lF: Parameter containing:
+tensor(-5.2872e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7489, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.020840059965848923
+output_scale: Parameter containing:
+tensor(0.7813, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 063	 Test accuracy: 92.01%
+lF: Parameter containing:
+tensor(0.0003, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7410, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.020840059965848923
+output_scale: Parameter containing:
+tensor(0.7796, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 064	 Test accuracy: 92.10000000000001%
+lF: Parameter containing:
+tensor(8.9898e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7415, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.020840059965848923
+output_scale: Parameter containing:
+tensor(0.7747, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 065	 Test accuracy: 92.04%
+lF: Parameter containing:
+tensor(7.0346e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7418, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.020840059965848923
+output_scale: Parameter containing:
+tensor(0.7799, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 066	 Test accuracy: 92.01%
+lF: Parameter containing:
+tensor(-2.1680e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7492, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.020840059965848923
+output_scale: Parameter containing:
+tensor(0.7791, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 067	 Test accuracy: 92.17%
+lF: Parameter containing:
+tensor(4.3633e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7471, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.020840059965848923
+output_scale: Parameter containing:
+tensor(0.7797, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 068	 Test accuracy: 92.05%
+lF: Parameter containing:
+tensor(2.2235e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7383, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.020840059965848923
+output_scale: Parameter containing:
+tensor(0.7883, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 069	 Test accuracy: 91.97%
+lF: Parameter containing:
+tensor(-0.0002, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7306, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.020840059965848923
+output_scale: Parameter containing:
+tensor(0.7819, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 070	 Test accuracy: 92.01%
+lF: Parameter containing:
+tensor(-9.1014e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7422, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01711679995059967
+output_scale: Parameter containing:
+tensor(0.7867, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 071	 Test accuracy: 91.94%
+lF: Parameter containing:
+tensor(-5.3981e-06, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7386, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01711679995059967
+output_scale: Parameter containing:
+tensor(0.7788, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 072	 Test accuracy: 91.96%
+lF: Parameter containing:
+tensor(2.7814e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7432, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01711679995059967
+output_scale: Parameter containing:
+tensor(0.7721, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 073	 Test accuracy: 92.01%
+lF: Parameter containing:
+tensor(-5.1407e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7455, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01711679995059967
+output_scale: Parameter containing:
+tensor(0.7768, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 074	 Test accuracy: 91.97999999999999%
+lF: Parameter containing:
+tensor(-4.9898e-06, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7427, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01711679995059967
+output_scale: Parameter containing:
+tensor(0.7794, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 075	 Test accuracy: 92.05%
+lF: Parameter containing:
+tensor(0.0008, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7397, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01711679995059967
+output_scale: Parameter containing:
+tensor(0.7770, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 076	 Test accuracy: 91.99000000000001%
+lF: Parameter containing:
+tensor(-1.6644e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7392, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01711679995059967
+output_scale: Parameter containing:
+tensor(0.7766, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 077	 Test accuracy: 92.0%
+lF: Parameter containing:
+tensor(2.5968e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7481, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01711679995059967
+output_scale: Parameter containing:
+tensor(0.7735, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 078	 Test accuracy: 92.05%
+lF: Parameter containing:
+tensor(1.1566e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7395, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01711679995059967
+output_scale: Parameter containing:
+tensor(0.7753, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 079	 Test accuracy: 91.92%
+lF: Parameter containing:
+tensor(9.9121e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7441, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.01711679995059967
+output_scale: Parameter containing:
+tensor(0.7732, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 080	 Test accuracy: 92.13%
+lF: Parameter containing:
+tensor(-0.0002, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7478, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.020993327721953392
+output_scale: Parameter containing:
+tensor(0.7708, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 081	 Test accuracy: 91.99000000000001%
+lF: Parameter containing:
+tensor(-0.0002, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7449, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.020993327721953392
+output_scale: Parameter containing:
+tensor(0.7699, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 082	 Test accuracy: 92.13%
+lF: Parameter containing:
+tensor(-9.2992e-06, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7456, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.020993327721953392
+output_scale: Parameter containing:
+tensor(0.7711, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 083	 Test accuracy: 92.01%
+lF: Parameter containing:
+tensor(-0.0002, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7449, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.020993327721953392
+output_scale: Parameter containing:
+tensor(0.7718, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 084	 Test accuracy: 92.01%
+lF: Parameter containing:
+tensor(9.1871e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7459, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.020993327721953392
+output_scale: Parameter containing:
+tensor(0.7707, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 085	 Test accuracy: 91.95%
+lF: Parameter containing:
+tensor(-5.2047e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7465, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.020993327721953392
+output_scale: Parameter containing:
+tensor(0.7743, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 086	 Test accuracy: 91.92%
+lF: Parameter containing:
+tensor(-5.5387e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7461, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.020993327721953392
+output_scale: Parameter containing:
+tensor(0.7744, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 087	 Test accuracy: 92.07%
+lF: Parameter containing:
+tensor(4.3861e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7461, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.020993327721953392
+output_scale: Parameter containing:
+tensor(0.7763, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 088	 Test accuracy: 91.97999999999999%
+lF: Parameter containing:
+tensor(1.0114e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7468, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.020993327721953392
+output_scale: Parameter containing:
+tensor(0.7786, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 089	 Test accuracy: 92.07%
+lF: Parameter containing:
+tensor(4.7708e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7445, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.020993327721953392
+output_scale: Parameter containing:
+tensor(0.7785, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 090	 Test accuracy: 91.91%
+lF: Parameter containing:
+tensor(2.7478e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7442, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.018710333853960037
+output_scale: Parameter containing:
+tensor(0.7790, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 091	 Test accuracy: 91.88%
+lF: Parameter containing:
+tensor(1.7960e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7442, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.018710333853960037
+output_scale: Parameter containing:
+tensor(0.7796, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 092	 Test accuracy: 92.11%
+lF: Parameter containing:
+tensor(-2.6374e-06, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7456, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.018710333853960037
+output_scale: Parameter containing:
+tensor(0.7769, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 093	 Test accuracy: 92.02%
+lF: Parameter containing:
+tensor(-4.3272e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7451, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.018710333853960037
+output_scale: Parameter containing:
+tensor(0.7741, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 094	 Test accuracy: 91.99000000000001%
+lF: Parameter containing:
+tensor(-4.2624e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7457, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.018710333853960037
+output_scale: Parameter containing:
+tensor(0.7764, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 095	 Test accuracy: 92.10000000000001%
+lF: Parameter containing:
+tensor(-0.0002, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7469, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.018710333853960037
+output_scale: Parameter containing:
+tensor(0.7780, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 096	 Test accuracy: 92.04%
+lF: Parameter containing:
+tensor(-8.9579e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7445, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.018710333853960037
+output_scale: Parameter containing:
+tensor(0.7771, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 097	 Test accuracy: 92.02%
+lF: Parameter containing:
+tensor(-5.2343e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7439, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.018710333853960037
+output_scale: Parameter containing:
+tensor(0.7780, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 098	 Test accuracy: 91.97999999999999%
+lF: Parameter containing:
+tensor(-9.5822e-06, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7428, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.018710333853960037
+output_scale: Parameter containing:
+tensor(0.7773, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 099	 Test accuracy: 92.03%
+lF: Parameter containing:
+tensor(-4.2571e-06, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7431, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.018710333853960037
+output_scale: Parameter containing:
+tensor(0.7780, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 100	 Test accuracy: 91.96%
+lF: Parameter containing:
+tensor(-3.2765e-06, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7431, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.015193726867437363
+output_scale: Parameter containing:
+tensor(0.7785, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 101	 Test accuracy: 91.9%
+lF: Parameter containing:
+tensor(1.7641e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7441, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.015193726867437363
+output_scale: Parameter containing:
+tensor(0.7785, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 102	 Test accuracy: 92.01%
+lF: Parameter containing:
+tensor(1.9571e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7448, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.015193726867437363
+output_scale: Parameter containing:
+tensor(0.7791, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 103	 Test accuracy: 91.97%
+lF: Parameter containing:
+tensor(-5.3401e-06, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7458, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.015193726867437363
+output_scale: Parameter containing:
+tensor(0.7787, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 104	 Test accuracy: 92.07%
+lF: Parameter containing:
+tensor(-1.2893e-06, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7450, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.015193726867437363
+output_scale: Parameter containing:
+tensor(0.7793, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 105	 Test accuracy: 91.97%
+lF: Parameter containing:
+tensor(-6.6995e-06, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7440, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.015193726867437363
+output_scale: Parameter containing:
+tensor(0.7796, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 106	 Test accuracy: 92.07%
+lF: Parameter containing:
+tensor(-1.1372e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7440, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.015193726867437363
+output_scale: Parameter containing:
+tensor(0.7792, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 107	 Test accuracy: 92.03%
+lF: Parameter containing:
+tensor(-6.9099e-06, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7430, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.015193726867437363
+output_scale: Parameter containing:
+tensor(0.7788, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 108	 Test accuracy: 92.01%
+lF: Parameter containing:
+tensor(-5.1954e-06, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7427, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.015193726867437363
+output_scale: Parameter containing:
+tensor(0.7788, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 109	 Test accuracy: 92.09%
+lF: Parameter containing:
+tensor(1.5654e-05, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7427, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.015193726867437363
+output_scale: Parameter containing:
+tensor(0.7789, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 110	 Test accuracy: 91.96%
+lF: Parameter containing:
+tensor(-8.9026e-06, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7429, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.019905902445316315
+output_scale: Parameter containing:
+tensor(0.7787, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 111	 Test accuracy: 92.05%
+lF: Parameter containing:
+tensor(-1.7760e-06, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7429, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.019905902445316315
+output_scale: Parameter containing:
+tensor(0.7784, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 112	 Test accuracy: 91.99000000000001%
+lF: Parameter containing:
+tensor(5.7166e-07, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7430, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.019905902445316315
+output_scale: Parameter containing:
+tensor(0.7786, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 113	 Test accuracy: 92.02%
+lF: Parameter containing:
+tensor(-2.1115e-06, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7432, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.019905902445316315
+output_scale: Parameter containing:
+tensor(0.7787, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 114	 Test accuracy: 91.92%
+lF: Parameter containing:
+tensor(4.6475e-06, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7432, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.019905902445316315
+output_scale: Parameter containing:
+tensor(0.7787, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 115	 Test accuracy: 91.99000000000001%
+lF: Parameter containing:
+tensor(-3.8334e-06, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7432, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.019905902445316315
+output_scale: Parameter containing:
+tensor(0.7787, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 116	 Test accuracy: 91.97%
+lF: Parameter containing:
+tensor(-1.1775e-06, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7432, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.019905902445316315
+output_scale: Parameter containing:
+tensor(0.7787, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 117	 Test accuracy: 91.92%
+lF: Parameter containing:
+tensor(2.7359e-07, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7432, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.019905902445316315
+output_scale: Parameter containing:
+tensor(0.7787, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 118	 Test accuracy: 91.99000000000001%
+lF: Parameter containing:
+tensor(-1.5684e-07, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7432, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.019905902445316315
+output_scale: Parameter containing:
+tensor(0.7787, device='cuda:0', requires_grad=True)
+
+
+Current epoch: 119	 Test accuracy: 91.88%
+lF: Parameter containing:
+tensor(7.7381e-08, device='cuda:0', requires_grad=True)
+uF: Parameter containing:
+tensor(0.7432, device='cuda:0', requires_grad=True)
+grad_scaleF: 0.019905902445316315
+output_scale: Parameter containing:
+tensor(0.7787, device='cuda:0', requires_grad=True)
+
+
+
+./results/CIFAR10_ResNet20/Qfeature_before_gap_1bits_EWGS/checkpoint/last_checkpoint.pth is loaded
+Test accuracy (Top-1): 91.88% from epoch 119
+
+
+./results/CIFAR10_ResNet20/Qfeature_before_gap_1bits_EWGS/checkpoint/best_checkpoint.pth is loaded
+Test accuracy (Top-1): 92.17% from epoch 67
+
+Total time: 1.6284938275814056h
+Save to ./results/CIFAR10_ResNet20/Qfeature_before_gap_1bits_EWGS/

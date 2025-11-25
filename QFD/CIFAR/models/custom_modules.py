@@ -103,9 +103,6 @@ class QConv(nn.Conv2d):
             self.lA = nn.Parameter(data = torch.tensor(0).float())
             self.register_buffer('bkwd_scaling_factorA', torch.tensor(args.bkwd_scaling_factorA).float())
 
-            self.uA_t = nn.Parameter(data = torch.tensor(0).float())
-            self.lA_t = nn.Parameter(data = torch.tensor(0).float())
-
         self.register_buffer('init', torch.tensor([0]))
         self.output_scale = nn.Parameter(data = torch.tensor(1).float())
         
@@ -170,9 +167,6 @@ class QConv(nn.Conv2d):
             self.uA.data.fill_(x.std() / math.sqrt(1 - 2/math.pi) * 3.0)
             self.lA.data.fill_(x.min())
             Qact = self.act_quantization(x)
-            
-            self.uA_t.data.fill_(x.std() / math.sqrt(1 - 2/math.pi) * 3.0)
-            self.lA_t.data.fill_(x.min())
 
         Qout = F.conv2d(Qact, Qweight, self.bias,  self.stride, self.padding, self.dilation, self.groups)
         out = F.conv2d(x, self.weight, self.bias,  self.stride, self.padding, self.dilation, self.groups)
